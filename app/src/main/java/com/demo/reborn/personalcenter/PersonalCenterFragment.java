@@ -7,6 +7,7 @@ import com.demo.reborn.data.json.Api1_Search_Users;
 import com.demo.reborn.financialreport.FinancialReportActivity;
 import com.demo.reborn.homepage.HomePageActivity;
 import com.demo.reborn.opportunityabstract.OpportunityAbstractActivity;
+import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
 import com.demo.reborn.registerpage.RegisterPageActivity;
 import com.demo.reborn.registerpage.RegisterPageContract;
 
@@ -14,6 +15,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -317,7 +319,10 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getContext(),IMActivity.class);
+                intent.putExtra("real_name", (String) list.get(position).get("real_name"));
+                intent.putExtra("id", (String) list.get(position).get("id"));
+                startActivity(intent);
             }
         });
         lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -347,7 +352,10 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(getContext(),IMActivity.class);
+                intent.putExtra("real_name", (String) list.get(position).get("real_name"));
+                intent.putExtra("id", (String) list.get(position).get("id"));
+                startActivity(intent);
             }
         });
         lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

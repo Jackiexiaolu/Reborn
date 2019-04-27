@@ -238,17 +238,11 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
             Map<String, Object> map = new HashMap<>();
             userInfo.setReal_name("小明"+i);
             userInfo.setDepartment("百度-人力中心-HR");
+            map.put("id", i);
             map.put("head_image", R.drawable.head);
             map.put("real_name",userInfo.getReal_name());
             map.put("department",userInfo.getDepartment());
             list.add(map);
-            Map<String, Object> map2 = new HashMap<>();
-            userInfo.setReal_name("小王"+i);
-            map2.put("head_image", R.drawable.head);
-            userInfo.setDepartment("百度-技术部-程序员");
-            map2.put("real_name",userInfo.getReal_name());
-            map2.put("department",userInfo.getDepartment());
-            list.add(map2);
         }
         mView.initListFriends(list);
     }
@@ -260,17 +254,11 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
             Map<String, Object> map = new HashMap<>();
             userInfo.setReal_name("小明");
             userInfo.setDepartment("今晚去吃饭？");
+            map.put("id", i);
             map.put("head_image", R.drawable.head);
             map.put("real_name",userInfo.getReal_name());
             map.put("message",userInfo.getDepartment());
             list.add(map);
-            Map<String, Object> map2 = new HashMap<>();
-            userInfo.setReal_name("小玩");
-            map2.put("head_image", R.drawable.head);
-            userInfo.setDepartment("今晚去吃饭？");
-            map2.put("real_name",userInfo.getReal_name());
-            map2.put("message",userInfo.getDepartment());
-            list.add(map2);
         }
         mView.initListFriendsMessage(list);
     }
