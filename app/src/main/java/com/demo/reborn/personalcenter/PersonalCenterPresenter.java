@@ -2,6 +2,7 @@ package com.demo.reborn.personalcenter;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.demo.reborn.R;
 import com.demo.reborn.data.FinancialDataRepository;
 import com.demo.reborn.data.json.Api1_CollectionList;
 import com.demo.reborn.data.json.Api1_Search_Users;
@@ -188,15 +189,49 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
     }
 
     public void getFriendsListPageInfo(int page){
-        List<Map<String,Api1_Search_Users.UserInfo>> list = new ArrayList<>();
-        Map<String, Api1_Search_Users.UserInfo> map = new HashMap<>();
+        List<Map<String,Object>> list = new ArrayList<>();
         Api1_Search_Users.UserInfo userInfo= new Api1_Search_Users.UserInfo();
-        userInfo.setReal_name("小明");
-        userInfo.setDepartment("百度");
-        map.put("1",userInfo);
+
+        for(int i=0; i<5; i++){
+            Map<String, Object> map = new HashMap<>();
+            userInfo.setReal_name("小明"+i);
+            userInfo.setDepartment("百度-人力中心-HR");
+            map.put("head_image", R.drawable.head);
+            map.put("real_name",userInfo.getReal_name());
+            map.put("department",userInfo.getDepartment());
+            list.add(map);
+            Map<String, Object> map2 = new HashMap<>();
+            userInfo.setReal_name("小王"+i);
+            map2.put("head_image", R.drawable.head);
+            userInfo.setDepartment("百度-技术部-程序员");
+            map2.put("real_name",userInfo.getReal_name());
+            map2.put("department",userInfo.getDepartment());
+            list.add(map2);
+        }
         mView.initListFriends(list);
     }
+    public void getFriendsListMessage(int page){
+        List<Map<String,Object>> list = new ArrayList<>();
+        Api1_Search_Users.UserInfo userInfo= new Api1_Search_Users.UserInfo();
 
+        for(int i=0; i<5; i++){
+            Map<String, Object> map = new HashMap<>();
+            userInfo.setReal_name("小明");
+            userInfo.setDepartment("今晚去吃饭？");
+            map.put("head_image", R.drawable.head);
+            map.put("real_name",userInfo.getReal_name());
+            map.put("message",userInfo.getDepartment());
+            list.add(map);
+            Map<String, Object> map2 = new HashMap<>();
+            userInfo.setReal_name("小玩");
+            map2.put("head_image", R.drawable.head);
+            userInfo.setDepartment("今晚去吃饭？");
+            map2.put("real_name",userInfo.getReal_name());
+            map2.put("message",userInfo.getDepartment());
+            list.add(map2);
+        }
+        mView.initListFriendsMessage(list);
+    }
 
 
     public void refreshList(){

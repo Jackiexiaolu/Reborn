@@ -196,7 +196,46 @@
             android:layout_height="fill_parent"
             android:orientation="vertical"
             android:paddingHorizontal="0dp">
+            <FrameLayout
+                android:id="@+id/fLayout_search_friend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/tb_financialhomepage">
 
+                <TextView
+                    android:id="@+id/tv_search_friend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle" />
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_search"
+                    android:scaleType="centerCrop"/>
+                <EditText
+                    android:id="@+id/et_search_fiend"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="  请输入好友名称"
+                    android:layout_marginStart="30dp"
+                    android:inputType="textPersonName"
+                    android:shadowColor="@android:color/black"
+                    android:textColorHighlight="@android:color/black"
+                    android:textColorHint="@color/white"
+                    android:textColorLink="@android:color/background_dark" />
+
+            </FrameLayout>
             <com.demo.reborn.NoScrollListView
                 android:id="@+id/lv_personalCenter_sharedList"
                 android:layout_width="match_parent"

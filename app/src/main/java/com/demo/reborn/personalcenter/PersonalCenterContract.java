@@ -27,7 +27,8 @@ public interface PersonalCenterContract {
         void setCompany(String company);
         void setPosition(String position);
 
-        void initListFriends(List<Map<String, Api1_Search_Users.UserInfo>> list);
+        void initListFriends(List<Map<String, Object>> list);
+        void initListFriendsMessage(List<Map<String, Object>> list);
     }
 
     interface Presenter extends BasePresenter{
@@ -37,6 +38,7 @@ public interface PersonalCenterContract {
         void displayIntelligence();
         void getFavouritePageInfo(int page);
         void getFriendsListPageInfo(int page);
+        void getFriendsListMessage(int page);
         int hasMoreInfo(int page);
         void setCompanyId(String str);
         String getFromPage();

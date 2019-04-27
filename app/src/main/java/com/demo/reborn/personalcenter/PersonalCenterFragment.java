@@ -10,13 +10,16 @@ import com.demo.reborn.opportunityabstract.OpportunityAbstractActivity;
 import com.demo.reborn.registerpage.RegisterPageActivity;
 import com.demo.reborn.registerpage.RegisterPageContract;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +37,8 @@ import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +85,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
     private String modifyInfoTime;
     private SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private RelativeLayout rLayout_version;
+    private FrameLayout frameLayout;
 
     public static PersonalCenterFragment newInstance(){ return new PersonalCenterFragment(); }
 
@@ -127,6 +133,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         mPresenter.displayFav();
         mPresenter.getFavouritePageInfo(page);
         rLayout_version = root.findViewById(R.id.rLayout_version);
+        frameLayout = root.findViewById(R.id.fLayout_search_friend);
         tv_personalCenter_fav.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -135,6 +142,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                     mPresenter.refreshList();
                     lv_personalCenter_sharedList.setAdapter(null);
                     page = 0;
+                    frameLayout.setVisibility(View.GONE);
                     mPresenter.getFavouritePageInfo(page);
                     currentPage = 1;
                 }
@@ -148,6 +156,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                     mPresenter.refreshList();
                     lv_personalCenter_sharedList.setAdapter(null);
                     page = 0;
+                    frameLayout.setVisibility(View.GONE);
                     mPresenter.getFriendsListPageInfo(page);
                     currentPage = 2;
                 }
@@ -159,7 +168,12 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                 if(currentPage != 3) {
                     mPresenter.displayMessage();
                     mPresenter.refreshList();
+                    frameLayout.setVisibility(View.VISIBLE);
+                    EditText editText = root.findViewById(R.id.et_search_fiend);
+                    String  real_name = editText.getText().toString().trim();
+
                     lv_personalCenter_sharedList.setAdapter(null);
+                    mPresenter.getFriendsListMessage(page);
                     currentPage = 3;
                     RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                     TextView tv_version = new TextView(getContext());
@@ -169,6 +183,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                     lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
                     tv_version.setLayoutParams(lp);
                     rLayout_version.addView(tv_version);
+
                 }
             }
         });
@@ -287,52 +302,88 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
 
 
 
-    public void initListFriends(List<Map<String, Api1_Search_Users.UserInfo>> list) {
+    public void initListFriends(List<Map<String,Object>> list) {
         //initListFriends_Response();
-        String[] from = {"real_name", "department"};
-        int[] to = {R.id.friends_name, R.id.friends_content};
+        String[] from = {"head_image","real_name", "department"};
+        int[] to = {R.id.image,R.id.friends_name, R.id.friends_content};
         final SimpleAdapter adapter = new SimpleAdapter(getContext(), list, R.layout.fragment_personal_center_friends_listview_item, from, to) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
               final View view = super.getView(position, convertView, parent);
-                ListView listView = (ListView) view.findViewById(R.id.lv_personalCenter_sharedList);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-                        Toast.makeText(getActivity(),"ceshi",Toast.LENGTH_LONG).show();
-
-                    }
-                });
                 return view;
             }
         };
         lv_personalCenter_sharedList.setAdapter(adapter);
+        lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
+        lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                list.remove(position);
+                adapter.notifyDataSetChanged();
+                //添加向后台发删除数据的请求
+                Toast.makeText(getContext(),"删除成功！",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
     }
 
+    public void initListFriendsMessage(List<Map<String,Object>> list) {
+        //initListFriends_Response();
+        String[] from = {"head_image","real_name", "message"};
+        int[] to = {R.id.image,R.id.friends_name, R.id.friends_content};
+        final SimpleAdapter adapter = new SimpleAdapter(getContext(), list, R.layout.fragment_personal_center_friends_listview_item, from, to) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                final View view = super.getView(position, convertView, parent);
+                return view;
+            }
+        };
+        lv_personalCenter_sharedList.setAdapter(adapter);
+        lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            }
+        });
+        lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                list.remove(position);
+                adapter.notifyDataSetChanged();
+                //添加向后台发删除数据的请求
+                Toast.makeText(getContext(),"删除成功！",Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+    }
 
      public void setListener() {
-//        sv_personalCenter_listScroll.setOnTouchListener((v, event) -> {
-//            switch (event.getAction()) {
-//                case MotionEvent.ACTION_MOVE: {
-//                    break;
-//                }
-//                case MotionEvent.ACTION_DOWN: {
-//                    break;
-//                }
-//                case MotionEvent.ACTION_UP: {
-//                    //当文本的measureheight 等于scroll滚动的长度+scroll的height
-//                    if (sv_personalCenter_listScroll.getChildAt(0).getMeasuredHeight() <= sv_personalCenter_listScroll.getScrollY() + sv_personalCenter_listScroll.getHeight()) {
-//                        //当滑倒最底端时，加载视图出现（正在加载。。。）
-//                        loadCompanyView.setVisibility(View.VISIBLE);
-//                        onLoadCompanyInfo();//加载接下来的十条数据
-//
-//                    }
-//                    break;
-//                }
-//            }
-//            return false;
-//        });
+        sv_personalCenter_listScroll.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_MOVE: {
+                    break;
+                }
+                case MotionEvent.ACTION_DOWN: {
+                    break;
+                }
+                case MotionEvent.ACTION_UP: {
+                    //当文本的measureheight 等于scroll滚动的长度+scroll的height
+                    if (sv_personalCenter_listScroll.getChildAt(0).getMeasuredHeight() <= sv_personalCenter_listScroll.getScrollY() + sv_personalCenter_listScroll.getHeight()) {
+                        //当滑倒最底端时，加载视图出现（正在加载。。。）
+                        loadCompanyView.setVisibility(View.VISIBLE);
+                        onLoadCompanyInfo();//加载接下来的十条数据
+
+                    }
+                    break;
+                }
+            }
+            return false;
+        });
     }
 
     public void onLoadCompanyInfo() {
