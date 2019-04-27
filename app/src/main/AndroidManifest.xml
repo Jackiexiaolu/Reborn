@@ -45,6 +45,7 @@
         <activity android:name=".ownershipstructure.OwnershipStructureActivity"/>
         <activity android:name=".businessopportunity.BusinessOpportunityActivity"/>
         <activity android:name=".companydetail.CompanyDetailActivity"/>
+        <activity android:name=".personalcenter.ui.ui.activity.IMActivity"/>
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
