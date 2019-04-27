@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.demo.reborn">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".util.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/img_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".homepage.HomePageActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.demo.reborn.homepage.HomePageActivity"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".financialreport.FinancialReportActivity"/>
+        <activity android:name=".searchpage.SearchPageActivity" />
+        <activity android:name=".searchresult.SearchResultActivity"/>
+        <activity android:name=".baseinfodetail.BaseInfoDetailActivity"/>
+        <activity android:name=".historydetail.HistoryDetailActivity"/>
+        <activity android:name=".managerinfodetail.ManagerInfoDetailActivity"/>
+        <activity android:name=".capitalraisinginfodetail.CapitalRaisingInfoDetailActivity"/>
+        <activity android:name=".financinginfodetail.FinancingInfoDetailActivity"/>
+        <activity android:name=".holderinfodetail.HolderInfoDetailActivity"/>
+        <activity android:name=".productionmanagementdetail.ProductionManagementDetailActivity"/>
+        <activity android:name=".loginorregister.LoginOrRegisterActivity"/>
+        <activity android:name=".loginpage.LoginPageActivity"/>
+        <activity android:name=".registerpage.RegisterPageActivity"/>
+        <activity android:name=".recoverpassword.RecoverPasswordActivity"/>
+        <activity android:name=".financialintelligence.FinancialIntelligenceActivity"/>
+        <activity android:name=".preregisterpage.PreRegisterPageActivity"/>
+        <activity android:name=".opportunityabstract.OpportunityAbstractActivity"/>
+        <activity android:name=".ownershipstructure.OwnershipStructureActivity"/>
+        <activity android:name=".businessopportunity.BusinessOpportunityActivity"/>
+        <activity android:name=".companydetail.CompanyDetailActivity"/>
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".personalcenter.PersonalCenterActivity" />
+        <activity android:name=".passwordrecovery.PasswordRecoveryActivity" />
+        <activity android:name=".resetpassword.ResetPasswordActivity"></activity>
+    </application>
+
+</manifest>

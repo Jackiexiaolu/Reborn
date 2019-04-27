@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".homepage.HomePageActivity">
+
+
+    <LinearLayout
+        android:id="@+id/lLayout_search"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/red">
+        <ImageView
+            android:id="@+id/iv_qrb"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/img_text_rgb" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="5"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toRightOf="@+id/tv_QRB"
+            app:layout_constraintTop_toTopOf="@id/tv_QRB">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle" />
+
+            <EditText
+                android:id="@+id/et_searchPut"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:background="@null"
+                android:hint=" 请输入企业名称"
+                android:inputType="textPersonName"
+                android:shadowColor="@android:color/black"
+                android:textColorHighlight="@android:color/black"
+                android:textColorHint="@color/white"
+                android:textColorLink="@android:color/background_dark" />
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/iv_information"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_information"
+
+            />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/sl_show"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar"
+        app:layout_constraintTop_toBottomOf="@+id/lLayout_search">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/red" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/lLayout_search"
+            app:layout_constraintBottom_toTopOf="@id/ll_navigationBar">
+            <!--设置阴影-->
+            <com.dd.ShadowLayout
+                android:layout_width="match_parent"
+                app:sl_shadowColor="#15afafaf"
+                android:layout_gravity="center"
+                app:sl_shadowRadius="6px"
+                app:sl_cornerRadius="10dp"
+                app:sl_dy="10px"
+                app:sl_dx="10px"
+                android:layout_height="wrap_content">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="10dp" />
+            </com.dd.ShadowLayout>
+
+            <RadioGroup
+                android:id="@+id/rg_homepageBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/banner">
+
+                <RadioButton
+                    android:id="@+id/tv_headline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/btn_title_bg_selector"
+                    android:button="@null"
+                    android:gravity="center_horizontal"
+                    android:text="头条"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/tv_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/btn_title_bg_selector"
+                    android:button="@null"
+                    android:gravity="center_horizontal"
+                    android:text="新闻"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/tv_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/btn_title_bg_selector"
+                    android:button="@null"
+                    android:gravity="center_horizontal"
+                    android:text="评论"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/tv_bulletin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/btn_title_bg_selector"
+                    android:button="@null"
+                    android:gravity="center_horizontal"
+                    android:text="公告"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightGrey"
+                android:textSize="1sp"
+                app:layout_constraintBottom_toTopOf="@id/sl_show"
+                app:layout_constraintTop_toBottomOf="@id/rg_homepageBar" />
+
+
+            <com.demo.reborn.NoScrollListView
+                android:id="@+id/lv_newsShow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:divider="@color/lightGrey"
+                android:dividerHeight="6dp">
+
+            </com.demo.reborn.NoScrollListView>
+
+        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

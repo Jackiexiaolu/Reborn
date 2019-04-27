@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">企融宝</string>
+    <string name="welcome_to">WELCOME TO</string>
+    <string name="shouye">首页</string>
+    <string name="item_one">item_one</string>
+    <string name="item_two">item_two</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login_or_register">LoginOrRegisterActivity</string>
+    <string name="title_activity_login_page">LoginPageActivity</string>
+    <string name="title_activity_register_page">RegisterPageActivity</string>
+    <string name="title_activity_recover_password">RecoverPasswordActivity</string>
+</resources>

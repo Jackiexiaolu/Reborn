@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="navigationBar_textView_homePage" type="id" />
+    <item name="navigationBar_textView_financialReport" type="id" />
+    <item name="navigationBar_textView_mine" type="id" />
+    <item name="navigationBar_textView_businessOpportunity" type="id" />
+
+</resources>

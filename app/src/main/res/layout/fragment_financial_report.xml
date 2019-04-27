@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    tools:context=".financialreport.FinancialReportFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lLayout_title"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/img_background"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                >
+            <ImageView
+                android:id="@+id/iv_financialReport_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:srcCompat="@drawable/ic_back_white" />
+
+            <TextView
+                android:id="@+id/tv_titleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_secondTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:textSize="20sp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/white"
+                />
+
+            <LinearLayout
+                android:id="@+id/lLayout_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/sv_financialReport"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/ll_navigationBar"
+            app:layout_constraintTop_toBottomOf="@id/lLayout_title">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_financialReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp">
+
+                <!--                            -->
+                <!--        公司基本情况        -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/basicInfoRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="公司基本情况"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/basicInfoRectangle"
+                    app:layout_constraintTop_toTopOf="@id/basicInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/basicInfoDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/basicInfoRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/basicInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/basicInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/basicInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/companyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="公司名称"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/basicInfoRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/basicInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/basicInfoCompanyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/grey"
+                    android:gravity="right"
+                    android:text="                                           "
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/basicInfoDetail"
+                    app:layout_constraintStart_toEndOf="@id/companyName"
+                    app:layout_constraintTop_toTopOf="@id/companyName" />
+                <TextView
+                    android:id="@+id/groupName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="所属集团名称"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/basicInfoRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/basicInfoCompanyName" />
+
+                <TextView
+                    android:id="@+id/basicInfoGroupName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:background="@color/grey"
+                    android:gravity="right"
+                    android:text="                                           "
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/basicInfoDetail"
+                    app:layout_constraintStart_toEndOf="@id/companyName"
+                    app:layout_constraintTop_toTopOf="@id/groupName" />
+
+                <TextView
+                    android:id="@+id/legalPerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="法人"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/basicInfoRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/basicInfoGroupName" />
+
+                <TextView
+                    android:id="@+id/basicInfoLegalPerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey"
+                    android:text="          "
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintRight_toRightOf="@id/basicInfoDetail"
+                    app:layout_constraintTop_toTopOf="@id/legalPerson" />
+
+                <!--                            -->
+                <!--          股东背景          -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/stockHolderRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/basicInfoLegalPerson" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="股东背景"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/stockHolderRectangle"
+                    app:layout_constraintTop_toTopOf="@id/stockHolderRectangle" />
+
+                <TextView
+                    android:id="@+id/stockHolderDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/stockHolderRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/stockHolderRectangle"
+                    app:layout_constraintRight_toRightOf="@id/stockHolderDetail"
+                    app:layout_constraintTop_toBottomOf="@id/stockHolderRectangle" />
+
+                <TextView
+                    android:id="@+id/shareholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="第一大股东"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/stockHolderRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/stockHolderRectangle" />
+
+                <TextView
+                    android:id="@+id/stockHolderShareholder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/grey"
+                    android:gravity="right"
+                    android:text="                                  "
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/stockHolderDetail"
+                    app:layout_constraintStart_toEndOf="@+id/shareholder"
+                    app:layout_constraintTop_toTopOf="@id/shareholder" />
+
+                <TextView
+                    android:id="@+id/percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="占比"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/stockHolderRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/stockHolderShareholder" />
+
+                <TextView
+                    android:id="@+id/stockHolderPercent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:background="@color/grey"
+                    android:gravity="right"
+                    android:text="                                  "
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/stockHolderDetail"
+                    app:layout_constraintStart_toEndOf="@+id/percent"
+                    app:layout_constraintTop_toTopOf="@id/percent" />
+
+                <!--                            -->
+                <!--          历史沿革          -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/historyRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stockHolderPercent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="历史沿革"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/historyRectangle"
+                    app:layout_constraintTop_toTopOf="@id/historyRectangle" />
+
+                <TextView
+                    android:id="@+id/historyDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/historyRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/historyRectangle"
+                    app:layout_constraintRight_toRightOf="@id/historyDetail"
+                    app:layout_constraintTop_toBottomOf="@id/historyRectangle" />
+
+                <TextView
+                    android:id="@+id/history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/grey"
+                    android:text="                                                       "
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/historyRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/historyRectangle" />
+
+                <!--                            -->
+                <!--          高管信息          -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/managerRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/history" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="高管信息"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/managerRectangle"
+                    app:layout_constraintTop_toTopOf="@id/managerRectangle" />
+
+                <TextView
+                    android:id="@+id/managerDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/managerRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/managerRectangle"
+                    app:layout_constraintRight_toRightOf="@id/managerDetail"
+                    app:layout_constraintTop_toBottomOf="@id/managerRectangle" />
+
+                <TextView
+                    android:id="@+id/manager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/grey"
+                    android:text="                          "
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@id/managerDetail"
+                    app:layout_constraintStart_toStartOf="@id/managerRectangle"
+                    app:layout_constraintTop_toBottomOf="@id/managerRectangle" />
+
+                <!--                            -->
+                <!--        生产经营情况        -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/businessInfoRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/manager" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="生产经营情况"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/businessInfoRectangle"
+                    app:layout_constraintTop_toTopOf="@id/businessInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/businessInfoDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/businessInfoRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/businessInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/businessInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/businessInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/grey"
+                    android:text=""
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/businessInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/businessInfoRectangle" />
+
+                <!--                            -->
+                <!--      生产经营情况表1       -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/listHead01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/darkGrey"
+                    android:text="根据产品划分的前三年生产经营情况"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfo"
+                    app:layout_constraintRight_toRightOf="@id/businessInfo"
+                    app:layout_constraintTop_toBottomOf="@id/businessInfo" />
+
+                <com.demo.reborn.NoScrollListView
+                    android:id="@+id/businessList01"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/white"
+                    android:dividerHeight="1dp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfo"
+                    app:layout_constraintRight_toRightOf="@id/businessInfo"
+                    app:layout_constraintTop_toBottomOf="@id/listHead01">
+
+                </com.demo.reborn.NoScrollListView>
+
+                <!--                            -->
+                <!--      生产经营情况表2       -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/listHead02"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/darkGrey"
+                    android:text="根据其他地区划分的前三年生产经营情况"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfo"
+                    app:layout_constraintRight_toRightOf="@id/businessInfo"
+                    app:layout_constraintTop_toBottomOf="@id/businessList01" />
+
+                <com.demo.reborn.NoScrollListView
+                    android:id="@+id/businessList02"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:divider="@color/white"
+                    android:dividerHeight="1dp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/businessInfo"
+                    app:layout_constraintRight_toRightOf="@id/businessInfo"
+                    app:layout_constraintTop_toBottomOf="@id/listHead02">
+
+                </com.demo.reborn.NoScrollListView>
+
+                <!--                            -->
+                <!--          财务情况          -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/financingInfoRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/businessList02" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="财务情况"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/financingInfoRectangle"
+                    app:layout_constraintTop_toTopOf="@id/financingInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/financingInfoDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/financingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/financingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/financingInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/financingInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/financingInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/grey"
+                    android:text="                                                                                                                                                                               "
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toRightOf="@id/financingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/financingInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/financingInfoRectangle" />
+
+                <!--                            -->
+                <!--          融资情况          -->
+                <!--                            -->
+                <TextView
+                    android:id="@+id/raisingInfoRectangle"
+                    android:layout_width="3dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/red"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/financingInfo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
+                    android:text="融资情况"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/raisingInfoRectangle"
+                    app:layout_constraintTop_toTopOf="@id/raisingInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/raisingInfoDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:text="详情"
+                    android:textColor="@color/red"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/raisingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/darkGrey"
+                    app:layout_constraintLeft_toLeftOf="@id/raisingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/raisingInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/raisingInfoRectangle" />
+
+                <TextView
+                    android:id="@+id/raisingInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/grey"
+                    android:text="                     "
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/raisingInfoRectangle"
+                    app:layout_constraintRight_toRightOf="@id/raisingInfoDetail"
+                    app:layout_constraintTop_toBottomOf="@id/raisingInfoRectangle" />
+
+                <Button
+                    android:id="@+id/btn_pdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="生 成 P D F 融 资 报 告"
+                    app:layout_constraintTop_toBottomOf="@+id/raisingInfo"
+                    android:layout_marginTop="30dp"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </ScrollView>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/lLayout_title"
+            app:layout_constraintBottom_toTopOf="@id/ll_navigationBar">
+
+            <com.github.barteksc.pdfviewer.PDFView
+                android:id="@+id/pdfView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="@id/lLayout_title"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/ll_navigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/tv_baseInfoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="公司基本详情"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@color/lightGrey"
+        android:padding="5dp"
+        />
+    <ImageView
+        android:id="@+id/iv_baseInfoDetailBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/backicon"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_baseInfoTitle"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingBottom="20dp">
+
+            <!--     公司名称    -->
+            <TextView
+                android:id="@+id/companyNameRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="公司名称"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/companyNameRectangle"
+                app:layout_constraintTop_toTopOf="@id/companyNameRectangle" />
+
+            <TextView
+                android:id="@+id/tv_baseInfoDetailCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                     "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/companyNameRectangle"
+                app:layout_constraintTop_toBottomOf="@id/companyNameRectangle" />
+
+            <TextView
+                android:id="@+id/tv_companyNameLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_baseInfoDetailCompanyName"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_baseInfoDetailCompanyName" />
+
+            <!--     所属集团名称    -->
+            <TextView
+                android:id="@+id/groupNameRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_companyNameLine"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="所属集团名称"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/groupNameRectangle"
+                app:layout_constraintTop_toTopOf="@id/groupNameRectangle" />
+
+            <TextView
+                android:id="@+id/tv_baseInfoDetailGroupName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                     "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/groupNameRectangle"
+                app:layout_constraintTop_toBottomOf="@id/groupNameRectangle" />
+
+            <TextView
+                android:id="@+id/tv_groupNameLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_baseInfoDetailGroupName"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_baseInfoDetailGroupName" />
+            <!--     成立日期    -->
+
+            <TextView
+                android:id="@+id/establishDateRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_groupNameLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="成立日期"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/establishDateRectangle"
+                app:layout_constraintTop_toTopOf="@id/establishDateRectangle" />
+
+            <TextView
+                android:id="@+id/tv_baseInfoDetailEstablishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                     "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/establishDateRectangle"
+                app:layout_constraintTop_toBottomOf="@id/establishDateRectangle" />
+
+            <TextView
+                android:id="@+id/tv_establishDateLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_baseInfoDetailEstablishDate"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_baseInfoDetailEstablishDate" />
+
+            <!--  上市信息  -->
+            <TextView
+                android:id="@+id/listedInfoRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_establishDateLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="上市信息"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/listedInfoRectangle"
+                app:layout_constraintTop_toTopOf="@id/listedInfoRectangle" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_listedInfo"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@color/lightGrey"-->
+                <!--android:text="                                     "-->
+                <!--android:textColor="@color/darkGrey"-->
+                <!--app:layout_constraintLeft_toLeftOf="@id/listedInfoRectangle"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/listedInfoRectangle" />-->
+
+            <com.demo.reborn.NoScrollListView
+                android:id="@+id/lv_listedInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:dividerHeight="5dp"
+                android:divider="@color/white"
+                app:layout_constraintTop_toBottomOf="@id/listedInfoRectangle"
+                app:layout_constraintLeft_toLeftOf="@id/listedInfoRectangle"/>
+
+            <TextView
+                android:id="@+id/tv_listedInfoLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/lv_listedInfo"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lv_listedInfo" />
+
+            <!--    注册资本   -->
+
+            <TextView
+                android:id="@+id/registeredCapitalRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_listedInfoLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="注册资本 （人民币亿元）"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/registeredCapitalRectangle"
+                app:layout_constraintTop_toTopOf="@id/registeredCapitalRectangle" />
+
+            <TextView
+                android:id="@+id/tv_registeredCapital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                     "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/registeredCapitalRectangle"
+                app:layout_constraintTop_toBottomOf="@id/registeredCapitalRectangle" />
+
+            <TextView
+                android:id="@+id/tv_registeredCapitalLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_registeredCapital"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_registeredCapital" />
+
+            <!--  法定代表人 -->
+            <TextView
+                android:id="@+id/legalRepresentativeRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_registeredCapitalLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="法定代表人"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/legalRepresentativeRectangle"
+                app:layout_constraintTop_toTopOf="@id/legalRepresentativeRectangle" />
+
+            <TextView
+                android:id="@+id/tv_legalRepresentative"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                     "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/legalRepresentativeRectangle"
+                app:layout_constraintTop_toBottomOf="@id/legalRepresentativeRectangle" />
+
+            <TextView
+                android:id="@+id/tv_legalRepresentativeLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_legalRepresentative"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_legalRepresentative" />
+
+
+            <!--  注册地址   -->
+
+
+            <TextView
+                android:id="@+id/registeredAddressRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_legalRepresentativeLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="注册地址"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/registeredAddressRectangle"
+                app:layout_constraintTop_toTopOf="@id/registeredAddressRectangle" />
+
+            <TextView
+                android:id="@+id/tv_registeredAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text="                                                                                                   jn                  "
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/registeredAddressRectangle"
+                app:layout_constraintTop_toBottomOf="@id/registeredAddressRectangle"
+                app:layout_constraintRight_toRightOf="@id/tv_legalRepresentativeLine"/>
+
+            <TextView
+                android:id="@+id/tv_registeredAddressLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="@id/tv_registeredAddress"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_registeredAddress" />
+
+
+            <!--  主营业务   -->
+
+            <TextView
+                android:id="@+id/mainBusinessRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_registeredAddressLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="主营业务"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/mainBusinessRectangle"
+                app:layout_constraintTop_toTopOf="@id/mainBusinessRectangle" />
+
+            <TextView
+                android:id="@+id/tv_mainBusiness"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                android:text=""
+                android:textColor="@color/darkGrey"
+                app:layout_constraintLeft_toLeftOf="@id/mainBusinessRectangle"
+                app:layout_constraintTop_toBottomOf="@id/mainBusinessRectangle"
+                app:layout_constraintRight_toRightOf="@id/tv_legalRepresentativeLine"/>
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

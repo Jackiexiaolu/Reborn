@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl_ownershipStructure"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_ownershipStructureTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="股权结构"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@color/lightGrey"
+        android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/iv_ownershipStructureBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/backicon" />
+
+    <Button
+        android:id="@+id/btn_ownershipStructure_return"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="返回所查公司"
+        app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructureTitle"/>
+
+    <com.demo.reborn.MyScrollView
+        android:id="@+id/sv_ownershipStructure"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_ownershipStructure_return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/grey">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_ownershipStructure_rootView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 划线 -->
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line1"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="30dp"
+                app:layout_constraintTop_toBottomOf="@id/ll_ownershipStructure_groupCompany"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentCompany"
+                android:layout_marginBottom="15dp"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line2"
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_ownershipStructure_currentCompany"
+                app:layout_constraintRight_toRightOf="@id/tv_ownershipStructure_currentCompany"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentCompany"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line3"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentCompany"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_ownershipStructure_line1"
+                app:layout_constraintRight_toRightOf="@id/tv_ownershipStructure_line2"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line4"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                app:layout_constraintTop_toBottomOf="@id/ll_ownershipStructure_groupCompany"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toRightOf="@id/tv_ownershipStructure_line1"
+                app:layout_constraintRight_toRightOf="@id/tv_ownershipStructure_line5"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line5"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toLeftOf="@id/ll_ownershipStructure_secondHolder"
+                app:layout_constraintRight_toRightOf="@id/ll_ownershipStructure_secondHolder"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentCompany"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructure_line4"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line6"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentCompany"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_ownershipStructure_line2"
+                app:layout_constraintRight_toRightOf="@id/tv_ownershipStructure_line4"
+                android:background="@color/red"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_line7"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_ownershipStructure_line1"
+                app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructure_line1"
+                app:layout_constraintBottom_toTopOf="@id/tv_ownershipStructure_currentToChild"
+                android:background="@color/red"/>
+
+            <!--      -->
+            <!-- 内容 -->
+            <!--      -->
+            <LinearLayout
+                android:id="@+id/ll_ownershipStructure_groupCompany"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="7dp"
+                android:orientation="horizontal"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/red"/>
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_groupCompany"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="6dp"
+                    android:text="集团顶点公司"
+                    android:textSize="15sp"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+
+            <com.demo.reborn.NoScrollListView
+                android:id="@+id/lv_ownershipStructure_fatherList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="140dp"
+                android:dividerHeight="15dp"
+                android:divider="#00000000"
+                app:layout_constraintTop_toBottomOf="@+id/ll_ownershipStructure_groupCompany">
+
+            </com.demo.reborn.NoScrollListView>
+
+            <LinearLayout
+                android:id="@+id/ll_ownershipStructure_fatherList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="140dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/lv_ownershipStructure_fatherList">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_ownershipStructure_secondHolder"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_ownershipStructure_fatherList"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="horizontal"
+                android:background="@color/white">
+
+                <!--<TextView-->
+                    <!--android:layout_width="4dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@color/red"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_ownershipStructure_secondHolder"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="6dp"-->
+                    <!--android:text="第二大股东"-->
+                    <!--android:textSize="17sp"-->
+                    <!--android:textColor="#000000"/>-->
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_currentCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginEnd="10dp"
+                app:layout_constrainedWidth="true"
+                android:gravity="start"
+                android:padding="9dp"
+                android:text="所查公司"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:background="@color/red"
+                app:layout_constraintTop_toBottomOf="@id/ll_ownershipStructure_secondHolder"/>
+
+            <TextView
+                android:id="@+id/tv_ownershipStructure_currentToChild"
+                android:layout_width="2dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="30dp"
+                android:background="@color/red"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructure_currentCompany"/>
+
+            <com.demo.reborn.NoScrollListView
+                android:id="@+id/lv_ownershipStructure_childList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="#00000000"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructure_currentToChild">
+
+            </com.demo.reborn.NoScrollListView>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_ownershipStructure_lastItemCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:background="#00000000"
+                app:layout_constraintTop_toBottomOf="@+id/lv_ownershipStructure_childList"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_lastListItem_horizontal"
+                    android:layout_width="20dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/red"
+                    app:layout_constraintTop_toTopOf="@id/tv_ownershipStructure_lastItemCompany"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ownershipStructure_lastItemCompanyRate"
+                    app:layout_constraintLeft_toRightOf="@id/tv_ownershipStructure_lastListItem_verticalSmall"/>
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_lastListItem_vertical"
+                    android:layout_width="4dp"
+                    android:layout_height="0dp"
+                    android:background="@color/red"
+                    app:layout_constraintTop_toTopOf="@id/tv_ownershipStructure_lastItemCompany"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ownershipStructure_lastItemCompanyRate"
+                    app:layout_constraintLeft_toRightOf="@id/tv_ownershipStructure_lastListItem_horizontal"/>
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_lastItemCompany"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="3dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="无子公司"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_ownershipStructure_lastListItem_vertical"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_lastItemCompanyRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="3dp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="无子公司"
+                    android:textSize="9sp"
+                    android:textColor="@color/darkGrey"
+                    android:background="@color/white"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_ownershipStructure_lastListItem_vertical"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_ownershipStructure_lastItemCompany"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_ownershipStructure_lastListItem_verticalSmall"
+                    android:layout_width="2dp"
+                    android:layout_height="0dp"
+                    android:background="@color/red"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_ownershipStructure_lastListItem_horizontal"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </com.demo.reborn.MyScrollView>
+
+    <TextView
+        android:id="@+id/tv_ownershipStructure_currentCompanyTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_ownershipStructure_return"
+        android:gravity="start"
+        android:padding="9dp"
+        android:text="所查公司"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:background="@color/red"/>
+</android.support.constraint.ConstraintLayout>

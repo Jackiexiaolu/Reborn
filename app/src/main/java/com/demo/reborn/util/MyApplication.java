@@ -1,0 +1,24 @@
+package com.demo.reborn.util;
+
+import android.app.Application;
+import android.content.Context;
+import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+
+public class MyApplication extends Application {
+
+        private static Context mContext;
+
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            //获取context
+            mContext = getApplicationContext();
+            JAnalyticsInterface.init(mContext);
+        }
+        //创建一个静态的方法，以便获取context对象
+        public static Context getContext(){
+            return mContext;
+        }
+    }
+
+

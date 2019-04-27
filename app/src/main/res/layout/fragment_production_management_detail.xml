@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/tv_productionManagementTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生产经营情况"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@color/lightGrey"
+        android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/iv_productionManagementBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/backicon" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_productionManagementTitle"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar" >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <!--     生产经营情况  -->
+            <TextView
+                android:id="@+id/productionManagementRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:textSize="17sp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="生产经营情况"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/productionManagementRectangle"
+                app:layout_constraintTop_toTopOf="@id/productionManagementRectangle" />
+
+            <TextView
+                android:id="@+id/tv_productionManagementInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_rounded_rectangle_grey"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:text="                                           "
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/productionManagementRectangle" />
+
+            <LinearLayout
+                android:id="@+id/ll_pTableProduct"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_productionManagementInfo"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
+                
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/darkGrey"
+                    android:orientation="vertical">
+                    
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="截止日期"
+                        android:gravity="center"/>
+                    
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+                    
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="分类依据"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营构成"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营收入"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="收入比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营成本"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="成本比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营利润"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="利润比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="毛利率"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tableProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_pTableArea"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/ll_pTableProduct"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/darkGrey"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="截止日期"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="分类依据"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营构成"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营收入"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="收入比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营成本"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="成本比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="主营利润"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="利润比例"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/grey"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="250px"
+                        android:text="毛利率"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/ll_tableArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

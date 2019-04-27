@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_holderInfoDetailTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="股东背景"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@color/lightGrey"
+        android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/iv_holderInfoDetailBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/backicon" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_holderInfoDetailTitle">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <!--     第一大股东    -->
+            <TextView
+                android:id="@+id/tv_holderInfoDetailCompanyTypeRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="第一大股东"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_holderInfoDetailCompanyTypeRectangle"
+                app:layout_constraintTop_toTopOf="@id/tv_holderInfoDetailCompanyTypeRectangle" />
+
+            <RelativeLayout
+                android:id="@+id/rl_holderInfoDetailCompanyTypeBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@id/tv_holderInfoDetailCompanyTypeRectangle"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_holderInfoDetailCompanyTypeRectangle"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_rounded_rectangle_grey">
+                <TextView
+                    android:id="@+id/tv_holderInfoDetailCompanyType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="                                     "
+                    android:textColor="@color/darkGrey"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_holderInfoDetailCompanyTypeLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rl_holderInfoDetailCompanyTypeBackground" />
+
+            <TextView
+                android:id="@+id/tv_holderInfoDetailHolderListRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_holderInfoDetailCompanyTypeRectangle"
+                app:layout_constraintTop_toBottomOf="@id/tv_holderInfoDetailCompanyTypeLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="股东列表"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_holderInfoDetailHolderListRectangle"
+                app:layout_constraintTop_toTopOf="@id/tv_holderInfoDetailHolderListRectangle" />
+
+            <RelativeLayout
+                android:id="@+id/rl_holderInfoDetailHolderListBackground"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="@id/tv_holderInfoDetailHolderListRectangle"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_holderInfoDetailHolderListRectangle"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_rounded_rectangle_grey">
+                <TextView
+                    android:id="@+id/tv_rl_holderInfoDetailHolderListName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="股东名称："
+                    android:textColor="@color/darkGrey"/>
+
+                <TextView
+                    android:id="@+id/tv_holderInfoDetailHolderListHolderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="                                     "
+                    android:textColor="@color/darkGrey"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/tv_rl_holderInfoDetailHolderListName"
+                    android:layout_alignParentEnd="true"/>
+
+                <TextView
+                    android:id="@+id/tv_rl_holderInfoDetailHolderListCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_below="@id/tv_holderInfoDetailHolderListHolderName"
+                    android:layout_marginTop="5dp"
+                    android:text="股票代码："
+                    android:textColor="@color/darkGrey"/>
+
+                <TextView
+                    android:id="@+id/tv_holderInfoDetailHolderListStockCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:text="                                     "
+                    android:textColor="@color/darkGrey"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/tv_rl_holderInfoDetailHolderListCode"
+                    android:layout_alignTop="@id/tv_rl_holderInfoDetailHolderListCode"/>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/holderPieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:layout_below="@id/tv_rl_holderInfoDetailHolderListCode"
+                    android:layout_marginTop="10dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_holderInfoDetailHolderListLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGrey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rl_holderInfoDetailHolderListBackground" />
+
+            <TextView
+                android:id="@+id/tv_holderInfoDetailOwnershipStructureRectangle"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/red"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toLeftOf="@id/tv_holderInfoDetailCompanyTypeRectangle"
+                app:layout_constraintTop_toBottomOf="@id/tv_holderInfoDetailHolderListLine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:text="集团图谱"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintLeft_toRightOf="@id/tv_holderInfoDetailOwnershipStructureRectangle"
+                app:layout_constraintTop_toTopOf="@id/tv_holderInfoDetailOwnershipStructureRectangle" />
+
+            <TextView
+                android:id="@+id/tv_holderInfoDetailOwnershipStructure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="股权关系"
+                android:textColor="@color/red"
+                app:layout_constraintLeft_toRightOf="@id/tv_holderInfoDetailOwnershipStructureRectangle"
+                android:layout_marginStart="7dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_holderInfoDetailOwnershipStructureRectangle"
+                android:layout_marginTop="5dp"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

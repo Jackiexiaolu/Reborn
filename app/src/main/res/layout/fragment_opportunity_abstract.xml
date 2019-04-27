@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cLayout_businessOpportunity">
+
+    <TextView
+        android:id="@+id/tv_businessOpportunity_Title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/red"
+        android:gravity="center"
+        android:text="公司商机"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/iv_businessOpportunity_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/ic_back_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_businessOpportunity_Title"/>
+
+    <ScrollView
+        android:id="@+id/sv_businessOpportunity_trent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_businessOpportunity_Title"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--                            -->
+            <!--          趋势变化          -->
+            <!--                            -->
+            <!--<TextView-->
+                <!--android:id="@+id/tv_businessOpportunity_trendChangeRectangle"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="30dp"-->
+                <!--android:layout_marginStart="20dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintTop_toTopOf="parent"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="7dp"-->
+                <!--android:text="趋势变化"-->
+                <!--android:textColor="#000000"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintLeft_toRightOf="@id/tv_businessOpportunity_trendChangeRectangle"-->
+                <!--app:layout_constraintTop_toTopOf="@id/tv_businessOpportunity_trendChangeRectangle" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_businessOpportunity_trendChangeDetail"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="详情"-->
+                <!--android:textColor="@color/red"-->
+                <!--android:textSize="14sp"-->
+                <!--android:layout_marginEnd="20dp"-->
+                <!--app:layout_constraintBottom_toBottomOf="@id/tv_businessOpportunity_trendChangeRectangle"-->
+                <!--app:layout_constraintRight_toRightOf="parent" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:background="@color/darkGrey"-->
+                <!--android:layout_marginStart="20dp"-->
+                <!--android:layout_marginEnd="20dp"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/tv_businessOpportunity_trendChangeRectangle" />-->
+
+            <LinearLayout
+                android:id="@+id/ll_businessOpportunity_assetLiabilityRatioChange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_businessOpportunity_liabilitiesChange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/ll_businessOpportunity_assetLiabilityRatioChange">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_businessOpportunity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/ll_businessOpportunity_liabilitiesChange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp">
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

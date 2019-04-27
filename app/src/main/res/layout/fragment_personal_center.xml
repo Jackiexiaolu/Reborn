@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightGrey"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="个人中心"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/iv_personalCenter_Back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backicon" />
+
+    <ImageView
+        android:id="@+id/iv_personalCenter_Avatar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_Title"
+        app:srcCompat="@drawable/wode" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_realName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="XXX"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/iv_personalCenter_Avatar" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="男"
+        app:layout_constraintStart_toStartOf="@+id/tv_personalCenter_realName"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_realName" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_EditInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="编辑"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toStartOf="@+id/tv_personalCenter_Position"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_Position" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.27604166" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Occupation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="职业"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Gender"
+        app:layout_constraintStart_toEndOf="@+id/tv_personalCenter_Gender" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="公司"
+        app:layout_constraintStart_toStartOf="@+id/tv_personalCenter_Gender"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_Gender" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="职位"
+        app:layout_constraintStart_toStartOf="@+id/tv_personalCenter_Company"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_Company" />
+
+    <View
+        android:id="@+id/line_personalCenter_right"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/line_personalCenter_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/line_personalCenter_topRight" />
+
+    <View
+        android:id="@+id/line_personalCenter_left"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/line_personalCenter_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/line_personalCenter_top" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/line_personalCenter_topRight"
+        app:layout_constraintStart_toEndOf="@+id/line_personalCenter_top"
+        app:layout_constraintTop_toTopOf="@+id/line_personalCenter_top" />
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Fav"
+        app:layout_constraintStart_toEndOf="@+id/tv_personalCenter_Fav"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Friends"
+        app:layout_constraintStart_toEndOf="@+id/tv_personalCenter_Friends"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Message"
+        app:layout_constraintStart_toEndOf="@+id/tv_personalCenter_Message"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <View
+        android:id="@+id/line_personalCenter_bottom"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/personalCenter_navigationBar"
+        app:layout_constraintEnd_toStartOf="@+id/line_personalCenter_right"
+        app:layout_constraintStart_toEndOf="@+id/line_personalCenter_left" />
+
+    <View
+        android:id="@+id/line_personalCenter_top"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="@+id/tv_personalCenter_Message"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sv_personalCenter_listScroll"
+        app:layout_constraintTop_toBottomOf="@+id/tv_personalCenter_EditInfo" />
+
+    <View
+        android:id="@+id/line_personalCenter_topRight"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toStartOf="@+id/line_personalCenter_right"
+        app:layout_constraintStart_toEndOf="@+id/view7"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_personalCenter_Fav" />
+
+    <ScrollView
+        android:id="@+id/sv_personalCenter_listScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/line_personalCenter_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/line_personalCenter_right"
+        app:layout_constraintStart_toEndOf="@+id/line_personalCenter_left"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_topRight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="0dp">
+
+            <com.demo.reborn.NoScrollListView
+                android:id="@+id/lv_personalCenter_sharedList"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:divider="@color/lightGrey"
+                android:dividerHeight="18dp">
+            </com.demo.reborn.NoScrollListView>
+
+            <RelativeLayout
+                android:id="@+id/rLayout_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="收藏"
+        android:textSize="17sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/rectangle_without_border"
+        app:layout_constraintStart_toEndOf="@+id/line_personalCenter_left"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Friends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="好友"
+        android:textSize="17sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/rectangle_bottom_border"
+        app:layout_constraintStart_toEndOf="@+id/view9"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <TextView
+        android:id="@+id/tv_personalCenter_Message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消息"
+        android:textSize="17sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/rectangle_bottom_border"
+        app:layout_constraintStart_toEndOf="@+id/view10"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_personalCenter_Intelligence"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="融信"-->
+        <!--android:textSize="17sp"-->
+        <!--android:paddingStart="5dp"-->
+        <!--android:paddingEnd="5dp"-->
+        <!--android:background="@drawable/rectangle_bottom_border"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/view11"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />-->
+
+    <LinearLayout
+        android:id="@+id/personalCenter_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_perosonCenter_logout"
+        android:layout_width="54dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="注销"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/iv_personalCenter_Back"
+        app:layout_constraintTop_toTopOf="@+id/tv_personalCenter_Title" />
+
+</android.support.constraint.ConstraintLayout>

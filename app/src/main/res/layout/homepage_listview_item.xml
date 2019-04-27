@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/iv_newsPic"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/toutiao1"
+        />
+
+    <TextView
+        android:id="@+id/tv_newsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_toEndOf="@id/iv_newsPic"
+        android:layout_toRightOf="@id/iv_newsPic"
+        android:text="百度地震！"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_newsContent"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/tv_newsTitle"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/iv_newsPic"
+        android:layout_toRightOf="@id/iv_newsPic"
+        android:text="百度宣布集团总裁兼首席运营官陆奇由于个人和家庭原因，无法继续全职在北京工作，将从7月起不再担任上述职务，但仍将继续担任集团...."
+        android:textColor="@color/darkGrey"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_newsContent"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/iv_newsPic"
+        android:layout_toRightOf="@id/iv_newsPic"
+        android:layout_toEndOf="@id/iv_newsPic"
+        android:text="查看详情"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:textSize="12sp" />
+</RelativeLayout>

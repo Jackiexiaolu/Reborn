@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        android:id="@+id/financingInfoTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightGrey"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="财务情况"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/financingInfoTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/backicon" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/ll_navigationBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/financingInfoTitle"
+        app:layout_constraintVertical_bias="1.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/topSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_rounded_rectangle_grey"
+                android:lineSpacingMultiplier="1.2"
+                android:text="该公司暂无公开财务情况"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单位：亿元"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/financial_info_detail_list"
+                app:layout_constraintTop_toBottomOf="@id/preList"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:id="@+id/preList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="   "
+                android:textColor="@color/darkGrey"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topSummary"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/tv_attention"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="  "
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/financial_info_detail_list"/>
+
+            <!--<TextView-->
+                <!--android:id="@+id/para1Title"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="偿债能力分析"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.0"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/para1Rect"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/para1Rect" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="123456"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para1Title" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para2Title"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="营运能力分析"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/para2Rect"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/para2Rect" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="123456"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para2Title" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para3Title"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="盈利能力分析"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.0"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/para3Rect"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/para3Rect" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para3"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="123456"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para3Title" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para4Title"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="发展能力分析"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/para4Rect"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/para4Rect" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para4"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="    公司发展前景及能力，可参考年报公司战略及计划章节。"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="1.0"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para4Title" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para5Title"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="现金流量分析"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toEndOf="@+id/para5Rect"-->
+                <!--app:layout_constraintTop_toTopOf="@+id/para5Rect" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.2"-->
+                <!--android:text="123456"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para5Title" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/finalSummary"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@drawable/shape_rounded_rectangle_grey"-->
+                <!--android:lineSpacingMultiplier="1.5"-->
+                <!--android:text="综上"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para5" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para1Rect"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/tv_attention" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para2Rect"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para1" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para3Rect"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para2" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para4Rect"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para3" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/para5Rect"-->
+                <!--android:layout_width="3dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:background="@color/red"-->
+                <!--android:textSize="17sp"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/para4" />-->
+
+            <LinearLayout
+                android:id="@+id/financial_info_detail_list"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_unit">
+
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
