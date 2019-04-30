@@ -52,7 +52,7 @@ public class IMActivity extends AppCompatActivity {
     ImageView emotionAdd;
     StateButton emotionSend;
     NoScrollViewPager viewpager;
-    public int  rec_id;
+    public String  rec_id;
     RelativeLayout emotionLayout;
 
     private EmotionInputDetector mDetector;
@@ -74,6 +74,10 @@ public class IMActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        String real_name = intent.getStringExtra("real_name");
+        Toast.makeText(this,id+"===>"+real_name,Toast.LENGTH_SHORT).show();
         findViewByIds();
         EventBus.getDefault().register(this);
         initWidget();

@@ -470,7 +470,7 @@ public interface FinancialDataService {
             @Field("img_code")String graphCheckCode
     );
 
-    @GET("get_Api1_FriendsList")
+    @GET("friends_list")
     Observable<Response<Api1_FriendsList>> get_Api1_FriendsList(
             @Header("Cookie") String session,
             @Header("token_id") String token_id

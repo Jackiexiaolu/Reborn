@@ -7,6 +7,8 @@ import java.util.List;
  */
 
 public class Api1_FriendsList {
+
+
     public class Company {
         public String c_id;
         public String name;

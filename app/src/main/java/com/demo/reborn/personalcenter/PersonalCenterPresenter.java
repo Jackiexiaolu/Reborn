@@ -201,6 +201,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                     @Override
                     //获取完所有的数据，执行OnNext
                     public void onNext(Response<Api1_FriendsList> api1_FriendsList) {
+                        System.out.println(api1_FriendsList.body().info);//好使了
                         if (last)
                             limit = left;//如果是最后一页不足十条，则字典中只有left条数据
                         for (int i = 0; i < limit; i++) {
@@ -214,14 +215,14 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
 
                             list.add(map);
                         }
-                        mView.initList(list);
+                       // mView.initList(list);
 
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        System.out.println("--------------------"+e.getMessage());
                     }
 
                     @Override

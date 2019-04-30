@@ -1,32 +1,16 @@
 package com.demo.reborn.personalcenter;
 
-import com.demo.reborn.NavigationBar;
-import com.demo.reborn.R;
-import com.demo.reborn.companydetail.CompanyDetailActivity;
-import com.demo.reborn.data.json.Api1_Search_Users;
-import com.demo.reborn.financialreport.FinancialReportActivity;
-import com.demo.reborn.homepage.HomePageActivity;
-import com.demo.reborn.opportunityabstract.OpportunityAbstractActivity;
-import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
-import com.demo.reborn.registerpage.RegisterPageActivity;
-import com.demo.reborn.registerpage.RegisterPageContract;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.textservice.TextInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,16 +24,19 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONObject;
+import com.demo.reborn.NavigationBar;
+import com.demo.reborn.R;
+import com.demo.reborn.companydetail.CompanyDetailActivity;
+import com.demo.reborn.homepage.HomePageActivity;
+import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
+import com.demo.reborn.registerpage.RegisterPageActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
-import static com.demo.reborn.R.drawable.rectangle_bottom_border;
-import static com.demo.reborn.historydetail.HistoryDetailPresenter.list;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class PersonalCenterFragment extends Fragment implements PersonalCenterContract.View{
@@ -321,7 +308,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(),IMActivity.class);
                 intent.putExtra("real_name", (String) list.get(position).get("real_name"));
-                intent.putExtra("id", (String) list.get(position).get("id"));
+                intent.putExtra("id",  list.get(position).get("id")+"");
                 startActivity(intent);
             }
         });
@@ -354,7 +341,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(),IMActivity.class);
                 intent.putExtra("real_name", (String) list.get(position).get("real_name"));
-                intent.putExtra("id", (String) list.get(position).get("id"));
+                intent.putExtra("id",  list.get(position).get("id")+"");
                 startActivity(intent);
             }
         });
