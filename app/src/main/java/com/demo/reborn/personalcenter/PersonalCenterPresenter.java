@@ -7,6 +7,7 @@ import com.demo.reborn.data.FinancialDataRepository;
 import com.demo.reborn.data.json.Api1_CollectionList;
 import com.demo.reborn.data.json.Api1_FriendsList;
 import com.demo.reborn.data.json.Api1_Search_Users;
+import com.demo.reborn.data.json.Api1_Send_Friend_Response;
 import com.demo.reborn.data.json.Api1_ShowUserInfo;
 import com.demo.reborn.data.json.Api1_post_common;
 
@@ -17,10 +18,10 @@ import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-
 import retrofit2.Response;
-import static com.demo.reborn.Judgement.notNull;
+
 import static com.demo.reborn.Judgement.isNullOrEmpty;
+import static com.demo.reborn.Judgement.notNull;
 import static java.lang.Integer.valueOf;
 
 public class PersonalCenterPresenter implements PersonalCenterContract.Presenter {
@@ -264,6 +265,43 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
         mView.initListFriendsMessage(list);
     }
 
+    /**
+     * 删除好友
+     * @param id
+     */
+    public void deleteFriends(String id){
+      //// TODO: 2019/5/2  没有接口 
+    }
+
+    /**
+     * 添加好友
+     * @param id
+     */
+    public void addFriends(String id){
+        mData.get_Api1_Send_Friend_Request(id)
+                .subscribe(new Observer<Response<Api1_Send_Friend_Response>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Send_Friend_Response> api1_Send_Friend_Response) {
+                        System.out.println(api1_Send_Friend_Response.body().info);//好使了
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 
     public void refreshList(){
         limit = 1;//一次获取十条数据

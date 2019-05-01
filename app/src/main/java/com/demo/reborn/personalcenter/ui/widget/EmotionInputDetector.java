@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.demo.reborn.R;
 import com.demo.reborn.data.FinancialDataRepository;
+import com.demo.reborn.data.json.Api1_Receive_Friends_Message;
 import com.demo.reborn.data.json.Api1_Search_Users;
 import com.demo.reborn.data.json.Api1_Send_Friends_Message;
 import com.demo.reborn.personalcenter.ui.enity.MessageInfo;
@@ -201,8 +202,8 @@ public class EmotionInputDetector {
                 String data = mEditText.getText().toString();
                 messageInfo.setContent(data);
                 messageInfo.setHeader(Constants.HEADURL_LOCALSH);
-               // pushData(data,"05529bdeb6ab3ae8bba065abd3651168");
-                selectUser("");
+                pushData(data,"05529bdeb6ab3ae8bba065abd3651168");
+
                 messageInfo.setFileType(Constants.CHAT_FILE_TYPE_TEXT);
                 EventBus.getDefault().post(messageInfo);
                 mEditText.setText("");
@@ -212,6 +213,11 @@ public class EmotionInputDetector {
     }
 
 
+    /**
+     * 发送消息
+     * @param data
+     * @param rec_id
+     */
     public  void  pushData(String data,String  rec_id){
 
         //// TODO: 2019/4/26  发送信息
@@ -269,6 +275,36 @@ public class EmotionInputDetector {
 
     }
 
+    /**
+     * 接受消息
+     * @param send_id
+     * @return
+     */
+    public Object pullData(String send_id){
+        mData.get_Api1_Receive_friends_message(send_id).
+        subscribe(new Observer<Response<Api1_Receive_Friends_Message>>(){
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Response<Api1_Receive_Friends_Message> api1_Receive_Friends_Message) {
+                System.out.println(api1_Receive_Friends_Message.body().info+"---");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        return null;
+    }
 
 
 
