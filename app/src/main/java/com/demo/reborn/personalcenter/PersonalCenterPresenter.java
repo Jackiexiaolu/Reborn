@@ -5,7 +5,9 @@ import android.widget.ImageView;
 import com.demo.reborn.R;
 import com.demo.reborn.data.FinancialDataRepository;
 import com.demo.reborn.data.json.Api1_CollectionList;
+import com.demo.reborn.data.json.Api1_FriendsList;
 import com.demo.reborn.data.json.Api1_Search_Users;
+import com.demo.reborn.data.json.Api1_Send_Friend_Response;
 import com.demo.reborn.data.json.Api1_ShowUserInfo;
 import com.demo.reborn.data.json.Api1_post_common;
 
@@ -16,16 +18,16 @@ import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-
 import retrofit2.Response;
-import static com.demo.reborn.Judgement.notNull;
+
 import static com.demo.reborn.Judgement.isNullOrEmpty;
+import static com.demo.reborn.Judgement.notNull;
 import static java.lang.Integer.valueOf;
 
 public class PersonalCenterPresenter implements PersonalCenterContract.Presenter {
 
     private final PersonalCenterContract.View mView;
-    private final FinancialDataRepository mData;
+    public final FinancialDataRepository mData;
     private List<Map<String, Object>> list = new ArrayList<>();
     protected int limit = 1;//一次获取十条数据
     protected int left = 0;
@@ -189,6 +191,48 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
     }
 
     public void getFriendsListPageInfo(int page){
+
+        mData.get_Api1_FriendsList(0,0)
+                .subscribe(new Observer<Response<Api1_FriendsList>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_FriendsList> api1_FriendsList) {
+                        System.out.println(api1_FriendsList.body().info);//好使了
+                        if (last)
+                            limit = left;//如果是最后一页不足十条，则字典中只有left条数据
+                        for (int i = 0; i < limit; i++) {
+                            //Log.d("循环里", String.valueOf(limit));
+                            Map<String, Object> map = new HashMap<>();
+//                            map.put("companyName", api1_FriendsList.body().result.get(i).get(1));
+//                            map.put("legalPerson", api1_FriendsList.body().result.get(i).get(2));
+//                            map.put("c_id", api1_FriendsList.body().result.get(i).get(0));
+//                            map.put("address", api1_FriendsList.body().result.get(i).get(4));
+
+
+                            list.add(map);
+                        }
+                       // mView.initList(list);
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
         List<Map<String,Object>> list = new ArrayList<>();
         Api1_Search_Users.UserInfo userInfo= new Api1_Search_Users.UserInfo();
 
@@ -221,6 +265,43 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
         mView.initListFriendsMessage(list);
     }
 
+    /**
+     * 删除好友
+     * @param id
+     */
+    public void deleteFriends(String id){
+      //// TODO: 2019/5/2  没有接口 
+    }
+
+    /**
+     * 添加好友
+     * @param id
+     */
+    public void addFriends(String id){
+        mData.get_Api1_Send_Friend_Request(id)
+                .subscribe(new Observer<Response<Api1_Send_Friend_Response>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Send_Friend_Response> api1_Send_Friend_Response) {
+                        System.out.println(api1_Send_Friend_Response.body().info);//好使了
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 
     public void refreshList(){
         limit = 1;//一次获取十条数据

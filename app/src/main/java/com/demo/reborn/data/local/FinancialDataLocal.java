@@ -242,7 +242,7 @@ public class FinancialDataLocal implements FinancialDataInterface {
     }
 
     @Override
-    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(int rec_id) {
+    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(String rec_id) {
         return null;
     }
 
