@@ -42,7 +42,6 @@
         <activity android:name=".financialintelligence.FinancialIntelligenceActivity"/>
         <activity android:name=".preregisterpage.PreRegisterPageActivity"/>
         <activity android:name=".opportunityabstract.OpportunityAbstractActivity"/>
-        <activity android:name=".ownershipstructure.OwnershipStructureActivity"/>
         <activity android:name=".businessopportunity.BusinessOpportunityActivity"/>
         <activity android:name=".companydetail.CompanyDetailActivity"/>
         <activity android:name=".personalcenter.ui.ui.activity.IMActivity"/>

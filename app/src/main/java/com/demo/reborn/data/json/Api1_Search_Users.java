@@ -92,6 +92,7 @@ public class Api1_Search_Users {
         }
     }
     public String info;
-    public List<Api1_ShowUserInfo.UserInfo> select_list;
+//    public List<Api1_ShowUserInfo.UserInfo> select_list;
+    public List<List<String>> select_list;
     public int error;
 }

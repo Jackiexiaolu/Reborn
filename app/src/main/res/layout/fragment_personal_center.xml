@@ -286,7 +286,7 @@
         android:id="@+id/tv_personalCenter_Message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="消息"
+        android:text="搜索好友"
         android:textSize="17sp"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
@@ -294,17 +294,17 @@
         app:layout_constraintStart_toEndOf="@+id/view10"
         app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/tv_personalCenter_Intelligence"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="融信"-->
-        <!--android:textSize="17sp"-->
-        <!--android:paddingStart="5dp"-->
-        <!--android:paddingEnd="5dp"-->
-        <!--android:background="@drawable/rectangle_bottom_border"-->
-        <!--app:layout_constraintStart_toEndOf="@+id/view11"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />-->
+       <TextView
+        android:id="@+id/tv_personalCenter_Intelligence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="好友请求"
+        android:textSize="17sp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:background="@drawable/rectangle_bottom_border"
+        app:layout_constraintStart_toEndOf="@+id/view11"
+        app:layout_constraintTop_toBottomOf="@+id/line_personalCenter_top" />
 
     <LinearLayout
         android:id="@+id/personalCenter_navigationBar"

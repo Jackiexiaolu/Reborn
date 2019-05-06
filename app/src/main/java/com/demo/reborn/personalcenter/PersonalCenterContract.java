@@ -4,7 +4,7 @@ import android.widget.ImageView;
 
 import com.demo.reborn.BasePresenter;
 import com.demo.reborn.BaseView;
-import com.demo.reborn.data.json.Api1_Search_Users;
+import com.demo.reborn.data.json.Api1_ShowUserInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -29,6 +29,7 @@ public interface PersonalCenterContract {
 
         void initListFriends(List<Map<String, Object>> list);
         void initListFriendsMessage(List<Map<String, Object>> list);
+        void initListFriendsRequest(List<Map<String,Object>> list);
     }
 
     interface Presenter extends BasePresenter{
@@ -38,7 +39,11 @@ public interface PersonalCenterContract {
         void displayIntelligence();
         void getFavouritePageInfo(int page);
         void getFriendsListPageInfo(int page);
-        void getFriendsListMessage(int page);
+        void selectFriends(String department);
+        boolean agreeFriends(String rec_id);
+        void addFriends(String id);
+        void getFriendsListMessage(List<List<String>> mList);
+        void getResquestFriendsListPageInfo(int page);
         int hasMoreInfo(int page);
         void setCompanyId(String str);
         String getFromPage();

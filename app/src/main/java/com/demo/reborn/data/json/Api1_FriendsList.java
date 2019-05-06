@@ -7,6 +7,8 @@ import java.util.List;
  */
 
 public class Api1_FriendsList {
+
+
     public class Company {
         public String c_id;
         public String name;
@@ -21,6 +23,7 @@ public class Api1_FriendsList {
     }
 
     public String error;
-    public List<Company> request_list;
+   // public List<Company> request_list;
+    public  List<List<String>> request_list;
     public String info;
 }

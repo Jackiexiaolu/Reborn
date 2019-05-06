@@ -470,7 +470,7 @@ public interface FinancialDataService {
             @Field("img_code")String graphCheckCode
     );
 
-    @GET("get_Api1_FriendsList")
+    @GET("friends_list")
     Observable<Response<Api1_FriendsList>> get_Api1_FriendsList(
             @Header("Cookie") String session,
             @Header("token_id") String token_id
@@ -487,20 +487,21 @@ public interface FinancialDataService {
     Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_friend_request(
             @Header("Cookie") String session,
             @Header("token_id") String token_id,
-            @Query("rec_id") int rec_id
+            @Query("rec_id") String rec_id
     );
 
     @GET("receive_friend_request")
-    Observable<Response<Api1_FriendsList>> get_Api1_Receive_friend_request(
+    Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request(
             @Header("Cookie") String session,
             @Header("token_id") String token_id,
-            @Query("send_id") String send_id
+            @Query("rec_id") String rec_id
     );
 
     @GET("friends_request_list")
-    Observable<Response<Api1_Receive_Friend>> get_Api1_Friends_request_list(
+    Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list(
             @Header("Cookie") String session,
             @Header("token_id") String token_id
+
     );
 
     @FormUrlEncoded
@@ -508,8 +509,8 @@ public interface FinancialDataService {
     Observable<Response<Api1_Send_Friends_Message>> get_Api1_Send_friends_message(
             @Header("Cookie") String session,
             @Header("token_id") String token_id,
-            @Query("content") String content,
-            @Query("rec_id") String rec_id
+            @Field("content") String content,
+            @Field("rec_id") String rec_id
     );
 
 

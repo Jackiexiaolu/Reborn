@@ -3,30 +3,19 @@ package com.demo.reborn.personalcenter;
 import com.demo.reborn.NavigationBar;
 import com.demo.reborn.R;
 import com.demo.reborn.companydetail.CompanyDetailActivity;
-import com.demo.reborn.data.json.Api1_Search_Users;
-import com.demo.reborn.financialreport.FinancialReportActivity;
 import com.demo.reborn.homepage.HomePageActivity;
-import com.demo.reborn.opportunityabstract.OpportunityAbstractActivity;
-import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
 import com.demo.reborn.registerpage.RegisterPageActivity;
-import com.demo.reborn.registerpage.RegisterPageContract;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.textservice.TextInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,16 +29,15 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONObject;
+import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 
-import static com.demo.reborn.R.drawable.rectangle_bottom_border;
-import static com.demo.reborn.historydetail.HistoryDetailPresenter.list;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class PersonalCenterFragment extends Fragment implements PersonalCenterContract.View{
@@ -58,7 +46,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
     private TextView tv_personalCenter_fav;
     private TextView tv_personalCenter_message;
     private TextView tv_personalCenter_friends;
-    //private TextView tv_personalCenter_intelligence;
+    private TextView tv_personalCenter_intelligence;
     private TextView tv_personalCenter_realName;
     private TextView tv_personalCenter_gender;
     private TextView tv_personalCenter_occupation;
@@ -89,6 +77,10 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
     private RelativeLayout rLayout_version;
     private FrameLayout frameLayout;
 
+    //搜索好友
+    private EditText et_search_fiend;
+    private ImageView iv_search_friend;
+
     public static PersonalCenterFragment newInstance(){ return new PersonalCenterFragment(); }
 
     @Override
@@ -117,7 +109,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         tv_personalCenter_fav = root.findViewById(R.id.tv_personalCenter_Fav);
         tv_personalCenter_friends = root.findViewById(R.id.tv_personalCenter_Friends);
         tv_personalCenter_message = root.findViewById(R.id.tv_personalCenter_Message);
-        //tv_personalCenter_intelligence = root.findViewById(R.id.tv_personalCenter_Intelligence);
+        tv_personalCenter_intelligence = root.findViewById(R.id.tv_personalCenter_Intelligence);
         tv_personalCenter_realName = root.findViewById(R.id.tv_personalCenter_realName);
         tv_personalCenter_gender = root.findViewById(R.id.tv_personalCenter_Gender);
         tv_personalCenter_occupation = root.findViewById(R.id.tv_personalCenter_Occupation);
@@ -136,6 +128,9 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         mPresenter.getFavouritePageInfo(page);
         rLayout_version = root.findViewById(R.id.rLayout_version);
         frameLayout = root.findViewById(R.id.fLayout_search_friend);
+        et_search_fiend = root.findViewById(R.id.et_search_fiend);
+        iv_search_friend = root.findViewById(R.id.iv_search);
+
         tv_personalCenter_fav.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -171,11 +166,15 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                     mPresenter.displayMessage();
                     mPresenter.refreshList();
                     frameLayout.setVisibility(View.VISIBLE);
-                    EditText editText = root.findViewById(R.id.et_search_fiend);
-                    String  real_name = editText.getText().toString().trim();
+                    iv_search_friend.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String search_name = et_search_fiend.getText().toString().trim();
+                            mPresenter.selectFriends(search_name);
+                        }
+                    });
 
                     lv_personalCenter_sharedList.setAdapter(null);
-                    mPresenter.getFriendsListMessage(page);
                     currentPage = 3;
                     RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                     TextView tv_version = new TextView(getContext());
@@ -189,20 +188,20 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
                 }
             }
         });
-//        tv_personalCenter_intelligence.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                if(currentPage != 4) {
-//                    mPresenter.displayIntelligence();
-//                    mPresenter.refreshList();
-//                    lv_personalCenter_sharedList.setAdapter(null);
-//                    currentPage = 4;
-//                    //LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)test.getLayoutParams();
-//                    //params.setMargins(0,0,0,30);
-//                    //test.setLayoutParams(params);
-//                }
-//            }
-//        });
+        tv_personalCenter_intelligence.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(currentPage != 4) {
+                    mPresenter.displayIntelligence();
+                    mPresenter.refreshList();
+                    lv_personalCenter_sharedList.setAdapter(null);
+                    currentPage = 4;
+                    frameLayout.setVisibility(View.GONE);
+                    mPresenter.getResquestFriendsListPageInfo(page);
+
+                }
+            }
+        });
 
         bt_personalCenter_logout.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -306,7 +305,7 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
 
     public void initListFriends(List<Map<String,Object>> list) {
         //initListFriends_Response();
-        String[] from = {"head_image","real_name", "department"};
+        String[] from = {"head_image","real_name", "context"};
         int[] to = {R.id.image,R.id.friends_name, R.id.friends_content};
         final SimpleAdapter adapter = new SimpleAdapter(getContext(), list, R.layout.fragment_personal_center_friends_listview_item, from, to) {
             @Override
@@ -319,10 +318,12 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(getContext(),IMActivity.class);
                 intent.putExtra("real_name", (String) list.get(position).get("real_name"));
-                intent.putExtra("id", (String) list.get(position).get("id"));
+                intent.putExtra("id",  list.get(position).get("id")+"");
                 startActivity(intent);
+
             }
         });
         lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -352,24 +353,44 @@ public class PersonalCenterFragment extends Fragment implements PersonalCenterCo
         lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),IMActivity.class);
-                intent.putExtra("real_name", (String) list.get(position).get("real_name"));
-                intent.putExtra("id", (String) list.get(position).get("id"));
-                startActivity(intent);
+                  Toast.makeText(getContext(),"长按添加此好友！", Toast.LENGTH_SHORT).show();
             }
         });
         lv_personalCenter_sharedList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                list.remove(position);
-                adapter.notifyDataSetChanged();
+                mPresenter.addFriends((String)list.get(position).get("id"));
                 //添加向后台发删除数据的请求
-                Toast.makeText(getContext(),"删除成功！",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"添加成功！",Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
     }
 
+    public void initListFriendsRequest(List<Map<String,Object>> list) {
+        //initListFriends_Response();
+        String[] from = {"head_image","real_name", "context"};
+        int[] to = {R.id.image,R.id.friends_name, R.id.friends_content};
+        final SimpleAdapter adapter = new SimpleAdapter(getContext(), list, R.layout.fragment_personal_center_requestfriends_listview_item, from, to) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                final View view = super.getView(position, convertView, parent);
+                return view;
+            }
+        };
+        lv_personalCenter_sharedList.setAdapter(adapter);
+        lv_personalCenter_sharedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               boolean flag = mPresenter.agreeFriends((String)list.get(position).get("id"));
+               if(flag){
+                   list.remove(position);
+                   adapter.notifyDataSetChanged();
+               }
+            }
+        });
+
+    }
      public void setListener() {
         sv_personalCenter_listScroll.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {

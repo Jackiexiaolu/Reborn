@@ -52,7 +52,7 @@ public class IMActivity extends AppCompatActivity {
     ImageView emotionAdd;
     StateButton emotionSend;
     NoScrollViewPager viewpager;
-    public int  rec_id;
+    public String  rec_id;
     RelativeLayout emotionLayout;
 
     private EmotionInputDetector mDetector;
@@ -74,6 +74,11 @@ public class IMActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        rec_id = id;
+        String real_name = intent.getStringExtra("real_name");
+        Toast.makeText(this,rec_id+"===>"+real_name,Toast.LENGTH_SHORT).show();
         findViewByIds();
         EventBus.getDefault().register(this);
         initWidget();
@@ -311,12 +316,14 @@ public class IMActivity extends AppCompatActivity {
                 chatAdapter.notifyDataSetChanged();
             }
         }, 2000);
-        new Handler().postDelayed(new Runnable() {
+
+        Handler handler=new Handler();
+        Runnable runnable=new Runnable(){
+            @Override
             public void run() {
                 MessageInfo message = new MessageInfo();
-
-               //// TODO: 2019/4/27
-                //像后台发送请求
+                // TODO Auto-generated method stub
+                //要做的事情，这里再次调用此Runnable对象，以实现每两秒实现一次的定时器操作
                 message.setContent("这是模拟消息回复");
                 message.setType(Constants.CHAT_ITEM_TYPE_LEFT);
                 message.setFileType(Constants.CHAT_FILE_TYPE_TEXT);
@@ -324,8 +331,28 @@ public class IMActivity extends AppCompatActivity {
                 messageInfos.add(message);
                 chatAdapter.notifyItemInserted(messageInfos.size() - 1);
                 chatList.scrollToPosition(chatAdapter.getItemCount() - 1);
+                handler.postDelayed(this, 10000);
             }
-        }, 3000);
+        };
+        handler.postDelayed(runnable,2000);
+//         new Handler().postDelayed(new Runnable() {
+//            public void run() {
+//                MessageInfo message = new MessageInfo();
+//
+//               //// TODO: 2019/4/27
+//                //像后台发送请求
+//                message.setContent("这是模拟消息回复");
+//                message.setType(Constants.CHAT_ITEM_TYPE_LEFT);
+//                message.setFileType(Constants.CHAT_FILE_TYPE_TEXT);
+//                message.setHeader("http://img0.imgtn.bdimg.com/it/u=401967138,750679164&fm=26&gp=0.jpg");
+//                messageInfos.add(message);
+//                chatAdapter.notifyItemInserted(messageInfos.size() - 1);
+//                chatList.scrollToPosition(chatAdapter.getItemCount() - 1);
+//            }
+//        }, 3000);
+
+
+
     }
 
     @Override

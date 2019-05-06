@@ -134,11 +134,11 @@ public interface FinancialDataInterface {
 
     Observable<Response<Api1_Search_Users>> get_Api1_Search_Users(String department);
 
-    Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(int  rec_id);
+    Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(String  rec_id);
 
-    Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list(String send_id);
+    Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list();
 
-    Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request();
+    Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request(String rec_id);
 
     Observable<Response<Api1_Send_Friends_Message>> get_Api1_Send_friends_message(String content, String rec_id);
 

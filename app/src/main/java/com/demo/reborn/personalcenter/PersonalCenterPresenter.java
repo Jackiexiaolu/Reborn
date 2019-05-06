@@ -5,7 +5,10 @@ import android.widget.ImageView;
 import com.demo.reborn.R;
 import com.demo.reborn.data.FinancialDataRepository;
 import com.demo.reborn.data.json.Api1_CollectionList;
+import com.demo.reborn.data.json.Api1_FriendsList;
+import com.demo.reborn.data.json.Api1_Receive_Friend;
 import com.demo.reborn.data.json.Api1_Search_Users;
+import com.demo.reborn.data.json.Api1_Send_Friend_Response;
 import com.demo.reborn.data.json.Api1_ShowUserInfo;
 import com.demo.reborn.data.json.Api1_post_common;
 
@@ -16,16 +19,16 @@ import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-
 import retrofit2.Response;
-import static com.demo.reborn.Judgement.notNull;
+
 import static com.demo.reborn.Judgement.isNullOrEmpty;
+import static com.demo.reborn.Judgement.notNull;
 import static java.lang.Integer.valueOf;
 
 public class PersonalCenterPresenter implements PersonalCenterContract.Presenter {
 
     private final PersonalCenterContract.View mView;
-    private final FinancialDataRepository mData;
+    public final FinancialDataRepository mData;
     private List<Map<String, Object>> list = new ArrayList<>();
     protected int limit = 1;//一次获取十条数据
     protected int left = 0;
@@ -114,6 +117,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
 
                     }
 
+
                     @Override
                     //获取完所有的数据，执行OnNext
                     public void onNext(Response<Api1_CollectionList> api1_collectionList) {
@@ -189,38 +193,229 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
     }
 
     public void getFriendsListPageInfo(int page){
-        List<Map<String,Object>> list = new ArrayList<>();
-        Api1_Search_Users.UserInfo userInfo= new Api1_Search_Users.UserInfo();
+        List<Map<String,Object>> reslist = new ArrayList<>();
+        mData.get_Api1_FriendsList(0,0)
+                .subscribe(new Observer<Response<Api1_FriendsList>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-        for(int i=0; i<5; i++){
-            Map<String, Object> map = new HashMap<>();
-            userInfo.setReal_name("小明"+i);
-            userInfo.setDepartment("百度-人力中心-HR");
-            map.put("id", i);
-            map.put("head_image", R.drawable.head);
-            map.put("real_name",userInfo.getReal_name());
-            map.put("department",userInfo.getDepartment());
-            list.add(map);
-        }
-        mView.initListFriends(list);
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_FriendsList> api1_FriendsList) {
+                        System.out.println(api1_FriendsList.body().info);//好使了
+                        if (last)
+                            limit = left;//如果是最后一页不足十条，则字典中只有left条数据
+                        for (int i = 0; i < limit; i++) {
+                            //Log.d("循环里", String.valueOf(limit));
+                            for(List<String> stringList: api1_FriendsList.body().request_list){
+                                Map<String,Object> map = new HashMap<>();
+                                map.put("id", stringList.get(1));
+                                map.put("head_image", R.drawable.head);
+                                StringBuilder stringBuilder = new StringBuilder();
+                                stringBuilder.append(stringList.get(0)).append("-")
+                                        .append(stringList.get(0)).append("-")
+                                        .append(stringList.get(0));
+                                map.put("real_name",stringList.get(0));
+                                map.put("context",stringBuilder.toString());
+                                reslist.add(map);
+                            }
+                        }
+                       // mView.initList(list);
+                        mView.initListFriends(reslist);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
     }
-    public void getFriendsListMessage(int page){
+    //搜索好友
+    public void getFriendsListMessage( List<List<String>> mList){
         List<Map<String,Object>> list = new ArrayList<>();
-        Api1_Search_Users.UserInfo userInfo= new Api1_Search_Users.UserInfo();
-
-        for(int i=0; i<5; i++){
-            Map<String, Object> map = new HashMap<>();
-            userInfo.setReal_name("小明");
-            userInfo.setDepartment("今晚去吃饭？");
-            map.put("id", i);
+        System.out.println("开始解析数据");
+        for(List<String> stringList: mList){
+            Map<String,Object> map = new HashMap<>();
+            map.put("id", stringList.get(0));
             map.put("head_image", R.drawable.head);
-            map.put("real_name",userInfo.getReal_name());
-            map.put("message",userInfo.getDepartment());
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(stringList.get(5)).append("-")
+                    .append(stringList.get(6)).append("-")
+                    .append(stringList.get(7));
+            map.put("real_name",stringList.get(3));
+            map.put("message",stringBuilder.toString());
             list.add(map);
         }
         mView.initListFriendsMessage(list);
     }
 
+    /**
+     *请求列表
+     * @param page
+     */
+    public void getResquestFriendsListPageInfo(int page){
+        List<Map<String,Object>> reslist = new ArrayList<>();
+        mData.get_Api1_Friends_request_list()
+                .subscribe(new Observer<Response<Api1_FriendsList>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_FriendsList> api1_FriendsList) {
+                        System.out.println(api1_FriendsList.body().info);//好使了
+                        if (last)
+                            limit = left;//如果是最后一页不足十条，则字典中只有left条数据
+                        for (int i = 0; i < limit; i++) {
+                            //Log.d("循环里", String.valueOf(limit));
+                            for(List<String> stringList: api1_FriendsList.body().request_list){
+                                Map<String,Object> map = new HashMap<>();
+                                map.put("id", stringList.get(1));
+                                map.put("head_image", R.drawable.head);
+                                map.put("real_name",stringList.get(0));
+                                map.put("context","很高兴认识你！");
+                                reslist.add(map);
+                            }
+                        }
+                        // mView.initList(list);
+                        mView.initListFriendsRequest(reslist);
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
+    /**
+     * 删除好友
+     * @param id
+     */
+    public void deleteFriends(String id){
+      //// TODO: 2019/5/2  没有接口 
+    }
+
+    /**
+     * 查找用户
+     * @param department
+     */
+    public void selectFriends(String department){
+        System.out.println("开始查找"+department);
+        mData.get_Api1_Search_Users(department)
+                .subscribe(new Observer<Response<Api1_Search_Users>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Search_Users> api1_Search_Users) {
+                        System.out.println(api1_Search_Users.body().info);//好使了
+
+                        // TODO: 2019/5/6  
+                       getFriendsListMessage(api1_Search_Users.body().select_list);
+                        
+                        
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+    /**
+     * 同意添加好友用户
+     * @param
+     */
+    public boolean agreeFriends(String rec_id){
+        System.out.println("同意");
+        final boolean[] flag = new boolean[1];
+        mData.get_Api1_Receive_friend_request(rec_id)
+                .subscribe(new Observer<Response<Api1_Receive_Friend>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Receive_Friend> api1_Receive_Friend) {
+                        System.out.println(api1_Receive_Friend.body().info);//好使了
+                         flag[0] = true;
+
+                       // getFriendsListMessage(api1_Receive_Friend.body().select_list);
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        return flag[0];
+    }
+    /**
+     * 添加好友
+     * @param id
+     */
+    public void addFriends(String id){
+        mData.get_Api1_Send_Friend_Request(id)
+                .subscribe(new Observer<Response<Api1_Send_Friend_Response>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Send_Friend_Response> api1_Send_Friend_Response) {
+                        System.out.println(api1_Send_Friend_Response.body().info);//好使了
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 
     public void refreshList(){
         limit = 1;//一次获取十条数据

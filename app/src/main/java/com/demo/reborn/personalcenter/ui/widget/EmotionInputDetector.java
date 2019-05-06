@@ -20,12 +20,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.demo.reborn.R;
+import com.demo.reborn.data.FinancialDataRepository;
+import com.demo.reborn.data.json.Api1_Receive_Friends_Message;
+import com.demo.reborn.data.json.Api1_Search_Users;
+import com.demo.reborn.data.json.Api1_Send_Friends_Message;
 import com.demo.reborn.personalcenter.ui.enity.MessageInfo;
 import com.demo.reborn.personalcenter.ui.util.AudioRecorderUtils;
 import com.demo.reborn.personalcenter.ui.util.Constants;
 import com.demo.reborn.personalcenter.ui.util.PopupWindowFactory;
 
 import org.greenrobot.eventbus.EventBus;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import retrofit2.Response;
 
 
 /**
@@ -38,6 +46,7 @@ public class EmotionInputDetector {
     private static final String SHARE_PREFERENCE_NAME = "com.dss886.emotioninputdetector";
     private static final String SHARE_PREFERENCE_TAG = "soft_input_height";
 
+    private final FinancialDataRepository mData;
     private Activity mActivity;
     private InputMethodManager mInputManager;
     private SharedPreferences sp;
@@ -56,6 +65,7 @@ public class EmotionInputDetector {
     private TextView mPopVoiceText;
 
     private EmotionInputDetector() {
+        mData = FinancialDataRepository.getINSTANCE();
     }
 
     public static EmotionInputDetector with(Activity activity) {
@@ -181,7 +191,7 @@ public class EmotionInputDetector {
         return this;
     }
 
-    public EmotionInputDetector bindToSendButton(View sendButton, final int recId) {
+    public EmotionInputDetector bindToSendButton(View sendButton, final String  recId) {
         mSendButton = sendButton;
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +202,8 @@ public class EmotionInputDetector {
                 String data = mEditText.getText().toString();
                 messageInfo.setContent(data);
                 messageInfo.setHeader(Constants.HEADURL_LOCALSH);
-                pushData(data,recId);
+                pushData(data, recId);
+
                 messageInfo.setFileType(Constants.CHAT_FILE_TYPE_TEXT);
                 EventBus.getDefault().post(messageInfo);
                 mEditText.setText("");
@@ -202,12 +213,98 @@ public class EmotionInputDetector {
     }
 
 
-    public  void  pushData(String data,int rec_id){
+    /**
+     * 发送消息
+     * @param data
+     * @param rec_id
+     */
+    public  void  pushData(String data,String  rec_id){
 
         //// TODO: 2019/4/26  发送信息
+        mData.get_Api1_Send_friends_message(data,rec_id).
+        subscribe(new Observer<Response<Api1_Send_Friends_Message>>(){
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(Response<Api1_Send_Friends_Message> api1_post_common) {
+                System.out.println(api1_post_common.body().info+"---"+api1_post_common.body().error);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+
+    }
+    public  void  selectUser(String data){
+
+        //// TODO: 2019/4/26  发送信息
+        mData.get_Api1_Search_Users("金").
+                subscribe(new Observer<Response<Api1_Search_Users>>(){
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Response<Api1_Search_Users> api1_Api1_Search_Users) {
+                        System.out.println(api1_Api1_Search_Users.body().info+"---"+api1_Api1_Search_Users.body().error);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
     }
 
+    /**
+     * 接受消息
+     * @param send_id
+     * @return
+     */
+    public Object pullData(String send_id){
+        mData.get_Api1_Receive_friends_message(send_id).
+        subscribe(new Observer<Response<Api1_Receive_Friends_Message>>(){
+            @Override
+            public void onSubscribe(Disposable d) {
 
+            }
+
+            @Override
+            public void onNext(Response<Api1_Receive_Friends_Message> api1_Receive_Friends_Message) {
+                System.out.println(api1_Receive_Friends_Message.body().info+"---");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        return null;
+    }
 
 
 

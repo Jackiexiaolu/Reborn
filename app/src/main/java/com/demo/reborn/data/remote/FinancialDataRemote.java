@@ -272,6 +272,7 @@ public class FinancialDataRemote implements FinancialDataInterface {
 
     @Override
     public  Observable<Response<Api1_post_token>> post_Login_Information(String phoneNumber, String pwd){
+
         return getRetrofit()
                 .create(FinancialDataService.class)
                 .post_Login_Information(session,token_id,phoneNumber,pwd)
@@ -517,6 +518,7 @@ public class FinancialDataRemote implements FinancialDataInterface {
     }
     @Override
     public Observable<Response<Api1_FriendsList>> get_Api1_FriendsList(int limit, int page) {
+        System.out.println("token_id------22222222-------"+token_id);
         return getRetrofit()
                 .create(FinancialDataService.class)
                 .get_Api1_FriendsList(session,token_id)
@@ -534,7 +536,7 @@ public class FinancialDataRemote implements FinancialDataInterface {
     }
 
     @Override
-    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(int rec_id) {
+    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(String rec_id) {
         return getRetrofit()
                 .create(FinancialDataService.class)
                 .get_Api1_Send_friend_request(session,token_id,rec_id)
@@ -543,16 +545,7 @@ public class FinancialDataRemote implements FinancialDataInterface {
     }
 
     @Override
-    public Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list(String send_id) {
-        return getRetrofit()
-                .create(FinancialDataService.class)
-                .get_Api1_Receive_friend_request(session,token_id,send_id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread());
-    }
-
-    @Override
-    public Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request() {
+    public Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list( ) {
         return getRetrofit()
                 .create(FinancialDataService.class)
                 .get_Api1_Friends_request_list(session,token_id)
@@ -561,7 +554,17 @@ public class FinancialDataRemote implements FinancialDataInterface {
     }
 
     @Override
+    public Observable<Response<Api1_Receive_Friend >> get_Api1_Receive_friend_request(String rec_id) {
+        return getRetrofit()
+                .create(FinancialDataService.class)
+                .get_Api1_Receive_friend_request(session,token_id,rec_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    @Override
     public Observable<Response<Api1_Send_Friends_Message>> get_Api1_Send_friends_message(String content, String rec_id) {
+        System.out.println("get_Api1_Send_friends_message-------------"+token_id);
         return getRetrofit()
                 .create(FinancialDataService.class)
                 .get_Api1_Send_friends_message(session,token_id,content,rec_id)

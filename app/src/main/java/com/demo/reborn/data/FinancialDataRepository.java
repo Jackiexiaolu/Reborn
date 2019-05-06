@@ -334,20 +334,20 @@ public class FinancialDataRepository implements FinancialDataInterface {
     }
 
     @Override
-    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(int rec_id) {
+    public Observable<Response<Api1_Send_Friend_Response>> get_Api1_Send_Friend_Request(String  rec_id) {
         return mRemote.get_Api1_Send_Friend_Request(rec_id);
     }
 
     @Override
-    public Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list(String send_id) {
-        return mRemote.get_Api1_Friends_request_list(send_id);
+    public Observable<Response<Api1_FriendsList>> get_Api1_Friends_request_list() {
+        return mRemote.get_Api1_Friends_request_list();
     }
 
 
 
     @Override
-    public Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request() {
-        return mRemote.get_Api1_Receive_friend_request();
+    public Observable<Response<Api1_Receive_Friend>> get_Api1_Receive_friend_request( String rec_id) {
+        return mRemote.get_Api1_Receive_friend_request(rec_id);
     }
 
     @Override
