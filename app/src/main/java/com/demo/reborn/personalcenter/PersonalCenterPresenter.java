@@ -116,6 +116,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
 
                     }
 
+
                     @Override
                     //获取完所有的数据，执行OnNext
                     public void onNext(Response<Api1_CollectionList> api1_collectionList) {
@@ -162,6 +163,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                                             list.add(map);
                                         }
                                         mView.initList(list);
+
 
 
                                     }
@@ -214,6 +216,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
 //                            map.put("address", api1_FriendsList.body().result.get(i).get(4));
 
 
+
                             list.add(map);
                         }
                        // mView.initList(list);
@@ -245,6 +248,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
             map.put("real_name",userInfo.getReal_name());
             map.put("department",userInfo.getDepartment());
             list.add(map);
+
         }
         mView.initListFriends(list);
     }
@@ -261,6 +265,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
             map.put("real_name",userInfo.getReal_name());
             map.put("message",userInfo.getDepartment());
             list.add(map);
+
         }
         mView.initListFriendsMessage(list);
     }
@@ -284,6 +289,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                     public void onSubscribe(Disposable d) {
 
                     }
+
 
                     @Override
                     //获取完所有的数据，执行OnNext

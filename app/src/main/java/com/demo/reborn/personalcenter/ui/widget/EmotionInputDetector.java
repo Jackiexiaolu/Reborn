@@ -202,7 +202,7 @@ public class EmotionInputDetector {
                 String data = mEditText.getText().toString();
                 messageInfo.setContent(data);
                 messageInfo.setHeader(Constants.HEADURL_LOCALSH);
-                pushData(data,"05529bdeb6ab3ae8bba065abd3651168");
+                pushData(data, recId);
 
                 messageInfo.setFileType(Constants.CHAT_FILE_TYPE_TEXT);
                 EventBus.getDefault().post(messageInfo);
