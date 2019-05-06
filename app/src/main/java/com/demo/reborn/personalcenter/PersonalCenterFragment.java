@@ -32,7 +32,13 @@ import android.widget.Toast;
 import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
 
 import java.text.SimpleDateFormat;
-
+import com.demo.reborn.NavigationBar;
+import com.demo.reborn.R;
+import com.demo.reborn.companydetail.CompanyDetailActivity;
+import com.demo.reborn.homepage.HomePageActivity;
+import com.demo.reborn.personalcenter.ui.ui.activity.IMActivity;
+import com.demo.reborn.registerpage.RegisterPageActivity;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

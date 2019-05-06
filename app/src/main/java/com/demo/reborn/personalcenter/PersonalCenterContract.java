@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import com.demo.reborn.BasePresenter;
 import com.demo.reborn.BaseView;
+
 import com.demo.reborn.data.json.Api1_ShowUserInfo;
 
 import java.util.List;

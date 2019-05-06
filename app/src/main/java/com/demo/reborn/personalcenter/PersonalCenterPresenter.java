@@ -166,6 +166,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                                         mView.initList(list);
 
 
+
                                     }
 
                                     @Override
@@ -238,6 +239,9 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                     }
                 });
 
+
+
+
     }
     //搜索好友
     public void getFriendsListMessage( List<List<String>> mList){
@@ -254,6 +258,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
             map.put("real_name",stringList.get(3));
             map.put("message",stringBuilder.toString());
             list.add(map);
+
         }
         mView.initListFriendsMessage(list);
     }
@@ -320,7 +325,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
      */
     public void selectFriends(String department){
         System.out.println("开始查找"+department);
-        mData.get_Api1_Search_Users(department)
+       mData.get_Api1_Search_Users(department)
                 .subscribe(new Observer<Response<Api1_Search_Users>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -333,8 +338,9 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                         System.out.println(api1_Search_Users.body().info);//好使了
 
                         // TODO: 2019/5/6  
+
                        getFriendsListMessage(api1_Search_Users.body().select_list);
-                        
+
                         
                     }
 
@@ -349,6 +355,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                     }
                 });
     }
+
     /**
      * 同意添加好友用户
      * @param
@@ -386,7 +393,7 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
                 });
         return flag[0];
     }
-    /**
+  /**
      * 添加好友
      * @param id
      */
