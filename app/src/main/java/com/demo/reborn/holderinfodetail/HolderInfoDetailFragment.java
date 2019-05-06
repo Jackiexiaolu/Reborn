@@ -28,8 +28,6 @@ import java.util.List;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-//import com.demo.reborn.ownershipstructure.OwnershipStructureActivity;
-
 
 public class HolderInfoDetailFragment extends Fragment implements HolderInfoDetailContract.View {
 
