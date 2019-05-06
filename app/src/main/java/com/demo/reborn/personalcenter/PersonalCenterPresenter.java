@@ -279,6 +279,42 @@ public class PersonalCenterPresenter implements PersonalCenterContract.Presenter
     }
 
     /**
+     * 查找用户
+     * @param department
+     */
+    public void selectFriends(String department){
+        
+        mData.get_Api1_Search_Users(department)
+                .subscribe(new Observer<Response<Api1_Search_Users>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    //获取完所有的数据，执行OnNext
+                    public void onNext(Response<Api1_Search_Users> api1_Search_Users) {
+                        System.out.println(api1_Search_Users.body().info);//好使了
+
+                        // TODO: 2019/5/6  
+                       //initview( api1_Search_Users.body().select_list);
+                        
+                        
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        System.out.println("--------------------"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    /**
      * 添加好友
      * @param id
      */
